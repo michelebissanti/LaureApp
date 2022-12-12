@@ -8,27 +8,27 @@ public abstract class AbstractPersona {
 
 //	ESPRESSIONI REGOLARI
     /**
-     * Variabile REGEX_CODICE_FISCALE relativa all'espressione regolare per il controllo del codice fiscale di una persona generica
+     * Costante REGEX_CODICE_FISCALE relativa all'espressione regolare per il controllo del codice fiscale di una persona generica
      */
     private static final String REGEX_CODICE_FISCALE = "^[a-zA-Z]{6}[0-9]{2}[a-ehl-mpr-tA-EHL-MPR-T][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$";
     /**
-     * Variabile REGEX_NOME_COGNOME relativa all'espressione regolare per il controllo del nome e cognome di una persona generica
+     * Costante REGEX_NOME_COGNOME relativa all'espressione regolare per il controllo del nome e cognome di una persona generica
      */
     private static final String REGEX_NOME_COGNOME = "^[a-zA-Z\\s]+$";
     /**
-     * Variabile REGEX_CITTA relativa all'espressione regolare per il controllo della citta di una persona generica
+     * Costante REGEX_CITTA relativa all'espressione regolare per il controllo della citta di una persona generica
      */
     private static final String REGEX_CITTA = "^[a-zA-Z\\s]+$";
     /**
-     * Variabile REGEX_RESIDENZA relativa all'espressione regolare per il controllo della residenza di una persona generica
+     * Costante REGEX_RESIDENZA relativa all'espressione regolare per il controllo della residenza di una persona generica
      */
     private static final String REGEX_RESIDENZA = "^[a-zA-Z0-9\\s]+$";
     /**
-     * Variabile REGEX_NUMERO_TELEFONO relativa all'espressione regolare per il controllo del numero di telefono di una persona generica
+     * Costante REGEX_NUMERO_TELEFONO relativa all'espressione regolare per il controllo del numero di telefono di una persona generica
      */
     private static final String REGEX_NUMERO_TELEFONO = "^[0-9]{9,10}$";
     /**
-     * Variabile REGEX_MAIL relativa all'espressione regolare per il controllo della mail di una persona generica
+     * Costante REGEX_MAIL relativa all'espressione regolare per il controllo della mail di una persona generica
      */
     private static final String REGEX_MAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
@@ -67,6 +67,7 @@ public abstract class AbstractPersona {
      */
     private String mail = null;
 
+
 //	COSTRUTTORE
     /**
      * Costruttore di una persona generica
@@ -78,7 +79,7 @@ public abstract class AbstractPersona {
      * @param citta citta della persona
      * @param residenza residenza della persona
      * @param numeroTelefono numero di telefono della persona
-     * @param mail mail della persona
+     * @param mail e-mail della persona
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
@@ -117,7 +118,50 @@ public abstract class AbstractPersona {
         this.mail = mail;
     }
 
+
 //	GETTER E SETTER
+    /**
+     * Metodo getRegexCodiceFiscale per la restituzione dell'espressione regolare relativa al codice fiscale di una persona generica
+     *
+     * @return REGEX_CODICE_FISCALE della persona generica
+     */
+    public String getRegexCodiceFiscale() { return REGEX_CODICE_FISCALE; }
+
+    /**
+     * Metodo getRegexNomeCognome per la restituzione dell'espressione regolare relativa al nome e cognome di una persona generica
+     *
+     * @return REGEX_NOME_COGNOME della persona generica
+     */
+    public String getRegexNomeCognome() { return REGEX_NOME_COGNOME; }
+
+    /**
+     * Metodo getRegexCitta per la restituzione dell'espressione regolare relativa alla città di una persona generica
+     *
+     * @return REGEX_CITTA della persona generica
+     */
+    public String getRegexCitta() { return REGEX_CITTA; }
+
+    /**
+     * Metodo getRegexResidenza per la restituzione dell'espressione regolare relativa alla residenza di una persona generica
+     *
+     * @return REGEX_RESIDENZA della persona generica
+     */
+    public String getRegexResidenza() { return REGEX_RESIDENZA; }
+
+    /**
+     * Metodo getRegexNumeroTelefono per la restituzione dell'espressione regolare relativa al numero di una persona generica
+     *
+     * @return REGEX_NUMERO_TELEFONO della persona generica
+     */
+    public String getRegexNumeroTelefono() { return REGEX_NUMERO_TELEFONO; }
+
+    /**
+     * Metodo getRegexMail per la restituzione dell'espressione regolare relativa alla mail di una persona generica
+     *
+     * @return REGEX_MAIL della persona generica
+     */
+    public String getRegexMail() { return REGEX_MAIL; }
+
     /**
      * Metodo getCodiceFiscale per la restituzione del codice fiscale di una persona generica
      *
@@ -253,6 +297,7 @@ public abstract class AbstractPersona {
         this.mail = mail;
     }
 
+
     //	HASH CODE ED EQUALS
     /**
      * Metodo hashCode sul codice fiscale di una persona generica
@@ -283,6 +328,7 @@ public abstract class AbstractPersona {
         return Objects.equals(codiceFiscale, other.codiceFiscale);
     }
 
+
 //	TO STRING
     /**
      * Metodo toString per la visualizzazione delle informazioni relative ad una persona generica
@@ -291,8 +337,9 @@ public abstract class AbstractPersona {
      */
     @Override
     public String toString() {
-        return "codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail + "]";
+        return "codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail;
     }
+
 
 //	ALTRI METODI
     /**
@@ -302,7 +349,7 @@ public abstract class AbstractPersona {
      *
      * @return stringa settata nel modo corretto
      */
-    private String stringaSettata(String stringa) {
+    public String stringaSettata(String stringa) {
         String stringa1 = stringa.toLowerCase();
         String stringa2 = "";
 
