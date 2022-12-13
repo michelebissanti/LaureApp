@@ -19,6 +19,10 @@ public class Studente extends AbstractPersona{
      * Costante REGEX_ANNO_ISCRIZIONE relativa all'espressione regolare per il controllo dell'anno di iscrizione di uno studente
      */
     private static final String REGEX_ANNO_ISCRIZIONE = "^[0-9]{4}\\/[0-9]{4}$";
+    /**
+     * Costante REGEX_ESAME relativa all'espressione regolare per il controllo degli esami preferiti di uno studente
+     */
+    private static final String REGEX_ESAME = "^[a-zA-Z0-9\\s]+$";
 
 
     //VARIABILI
@@ -79,6 +83,13 @@ public class Studente extends AbstractPersona{
         if(media == null || media < 18 || media > 30)
             throw new EccezioniPersonalizzate("Media non valida");
 
+        if(esamiPreferiti.size() != 0) {
+            for (String esamePreferito: esamiPreferiti) {
+                if(esamePreferito == null || !esamePreferito.matches(REGEX_ESAME))
+                    throw new EccezioniPersonalizzate("Esame non valida");
+            }
+        }
+
         this.matricola = matricola;
         this.corsoDiLaurea = stringaSettata(corsoDiLaurea);
         this.annoIscrizione = annoIscrizione;
@@ -107,6 +118,13 @@ public class Studente extends AbstractPersona{
      * @return REGEX_CORSO_LAUREA dello studente
      */
     public String getRegexAnnoIscrizione() { return REGEX_CORSO_LAUREA; }
+
+    /**
+     * Metodo getRegexEsame per la restituzione dell'espressione regolare relativa agli esami preferiti di uno studente
+     *
+     * @return REGEX_ESAME dello studente
+     */
+    public String getRegexEsame() { return REGEX_ESAME; }
 
     /**
      * Metodo getMatricola per la restituzione della matricola di uno studente
