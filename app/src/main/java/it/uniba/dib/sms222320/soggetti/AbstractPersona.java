@@ -35,6 +35,10 @@ public abstract class AbstractPersona {
 
 //	VARIABILI
     /**
+     * Variabile uid relativa alla chiave primaria di autenticazione della persona generica
+     */
+    private String uid = null;
+    /**
      * Variabile codiceFiscale relativa al codice fiscale di una persona generica
      */
     private String codiceFiscale = null;
@@ -72,6 +76,7 @@ public abstract class AbstractPersona {
     /**
      * Costruttore di una persona generica
      *
+     * @param uid chiave primaria di autenticazione della persona
      * @param codiceFiscale codice fiscale identificativo della persona
      * @param nome nome della persona
      * @param cognome cognome della persona
@@ -83,7 +88,10 @@ public abstract class AbstractPersona {
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
-    public AbstractPersona(String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail) throws EccezioniPersonalizzate {
+    public AbstractPersona(String uid, String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail) throws EccezioniPersonalizzate {
+        if(uid == null)
+            throw new EccezioniPersonalizzate("uid non valido");
+
         if(codiceFiscale == null || !codiceFiscale.matches(REGEX_CODICE_FISCALE))
             throw new EccezioniPersonalizzate("Codice fiscale non valido");
 
@@ -108,6 +116,7 @@ public abstract class AbstractPersona {
         if(mail == null || !mail.matches(REGEX_MAIL))
             throw new EccezioniPersonalizzate("Mail non valida");
 
+        this.uid = uid;
         this.codiceFiscale = codiceFiscale.toUpperCase();
         this.nome = stringaSettata(nome);
         this.cognome = stringaSettata(cognome);
@@ -161,6 +170,15 @@ public abstract class AbstractPersona {
      * @return REGEX_MAIL della persona generica
      */
     public String getRegexMail() { return REGEX_MAIL; }
+
+    /**
+     * Metodo getUid per la restituzione del uid di una persona generica
+     *
+     * @return uid della persona generica
+     */
+    public String getUid() {
+        return uid;
+    }
 
     /**
      * Metodo getCodiceFiscale per la restituzione del codice fiscale di una persona generica
@@ -337,7 +355,7 @@ public abstract class AbstractPersona {
      */
     @Override
     public String toString() {
-        return "codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail;
+        return "uid=" + uid + " codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail;
     }
 
 
