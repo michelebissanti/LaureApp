@@ -12,7 +12,7 @@ import it.uniba.dib.sms222320.fragment_prof.RicevimentiFragment;
 import it.uniba.dib.sms222320.fragment_prof.SegnalazioniFragment;
 import it.uniba.dib.sms222320.fragment_prof.TesiFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainProfActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
 

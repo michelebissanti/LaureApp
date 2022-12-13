@@ -54,7 +54,7 @@ public class Professore extends AbstractPersona{
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
-    public Professore(String uid, String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, List<String> corsiDiLaurea, List<String> materieInsegnate) throws EccezioniPersonalizzate {
+    public Professore(String uid, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, List<String> corsiDiLaurea, List<String> materieInsegnate) throws EccezioniPersonalizzate {
         super(uid, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
 
         if(matricola == null || !matricola.matches(REGEX_MATRICOLA))
@@ -77,6 +77,30 @@ public class Professore extends AbstractPersona{
         this.matricola = matricola;
         this.corsiDiLaurea = corsiDiLaurea;
         this.materieInsegnate = materieInsegnate;
+    }
+
+    //costruttore con tutto tranne corsi di laure e materie
+    public Professore(String uid, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola) throws EccezioniPersonalizzate {
+        super(uid, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
+
+        if(matricola == null || !matricola.matches(REGEX_MATRICOLA))
+            throw new EccezioniPersonalizzate("Matricola non valida");
+
+        if(corsiDiLaurea.size() != 0) {
+            for (String corsoDiLaurea: corsiDiLaurea) {
+                if(corsoDiLaurea == null || !corsoDiLaurea.matches(REGEX_CORSO_LAUREA))
+                    throw new EccezioniPersonalizzate("Corso di laurea non valido");
+            }
+        }
+
+        if(materieInsegnate.size() != 0) {
+            for (String materiaInsegnata: materieInsegnate) {
+                if(materiaInsegnata == null || !materiaInsegnata.matches(REGEX_MATERIA))
+                    throw new EccezioniPersonalizzate("Materia non valida");
+            }
+        }
+
+        this.matricola = matricola;
     }
 
     //GETTER E SETTER

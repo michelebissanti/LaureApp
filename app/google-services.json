@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "721037411847",
+    "firebase_url": "https://laureapp-winecoders-default-rtdb.firebaseio.com",
+    "project_id": "laureapp-winecoders",
+    "storage_bucket": "laureapp-winecoders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721037411847:android:1e96ba7ed34b3ba329cca2",
+        "android_client_info": {
+          "package_name": "it.uniba.dib.sms222320"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721037411847-ahb3iaokvos426nmloo6bcdsfahci7m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_iDJLweD25dY6OsDBwaS_lYJHNnut_D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721037411847-ahb3iaokvos426nmloo6bcdsfahci7m0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
