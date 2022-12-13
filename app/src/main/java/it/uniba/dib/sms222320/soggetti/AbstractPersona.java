@@ -8,10 +8,6 @@ public abstract class AbstractPersona {
 
 //	ESPRESSIONI REGOLARI
     /**
-     * Costante REGEX_CODICE_FISCALE relativa all'espressione regolare per il controllo del codice fiscale di una persona generica
-     */
-    private static final String REGEX_CODICE_FISCALE = "^[a-zA-Z]{6}[0-9]{2}[a-ehl-mpr-tA-EHL-MPR-T][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$";
-    /**
      * Costante REGEX_NOME_COGNOME relativa all'espressione regolare per il controllo del nome e cognome di una persona generica
      */
     private static final String REGEX_NOME_COGNOME = "^[a-zA-Z\\s]+$";
@@ -38,10 +34,6 @@ public abstract class AbstractPersona {
      * Variabile uid relativa alla chiave primaria di autenticazione della persona generica
      */
     private String uid = null;
-    /**
-     * Variabile codiceFiscale relativa al codice fiscale di una persona generica
-     */
-    private String codiceFiscale = null;
     /**
      * Variabile nome relativa al nome di una persona generica
      */
@@ -77,7 +69,6 @@ public abstract class AbstractPersona {
      * Costruttore di una persona generica
      *
      * @param uid chiave primaria di autenticazione della persona
-     * @param codiceFiscale codice fiscale identificativo della persona
      * @param nome nome della persona
      * @param cognome cognome della persona
      * @param dataNascita data di nascita della persona
@@ -88,12 +79,9 @@ public abstract class AbstractPersona {
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
-    public AbstractPersona(String uid, String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail) throws EccezioniPersonalizzate {
+    public AbstractPersona(String uid, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail) throws EccezioniPersonalizzate {
         if(uid == null)
             throw new EccezioniPersonalizzate("uid non valido");
-
-        if(codiceFiscale == null || !codiceFiscale.matches(REGEX_CODICE_FISCALE))
-            throw new EccezioniPersonalizzate("Codice fiscale non valido");
 
         if(nome == null || !nome.matches(REGEX_NOME_COGNOME))
             throw new EccezioniPersonalizzate("Nome non valido");
@@ -117,7 +105,6 @@ public abstract class AbstractPersona {
             throw new EccezioniPersonalizzate("Mail non valida");
 
         this.uid = uid;
-        this.codiceFiscale = codiceFiscale.toUpperCase();
         this.nome = stringaSettata(nome);
         this.cognome = stringaSettata(cognome);
         this.dataNascita = dataNascita;
@@ -129,13 +116,6 @@ public abstract class AbstractPersona {
 
 
 //	GETTER E SETTER
-    /**
-     * Metodo getRegexCodiceFiscale per la restituzione dell'espressione regolare relativa al codice fiscale di una persona generica
-     *
-     * @return REGEX_CODICE_FISCALE della persona generica
-     */
-    public String getRegexCodiceFiscale() { return REGEX_CODICE_FISCALE; }
-
     /**
      * Metodo getRegexNomeCognome per la restituzione dell'espressione regolare relativa al nome e cognome di una persona generica
      *
@@ -178,15 +158,6 @@ public abstract class AbstractPersona {
      */
     public String getUid() {
         return uid;
-    }
-
-    /**
-     * Metodo getCodiceFiscale per la restituzione del codice fiscale di una persona generica
-     *
-     * @return codiceFiscale della persona generica
-     */
-    public String getCodiceFiscale() {
-        return codiceFiscale;
     }
 
     /**
@@ -318,21 +289,21 @@ public abstract class AbstractPersona {
 
     //	HASH CODE ED EQUALS
     /**
-     * Metodo hashCode sul codice fiscale di una persona generica
+     * Metodo hashCode sull'uid di una persona generica
      *
-     * @return codice hash del codice fiscale della persona generica
+     * @return codice hash dell'uid della persona generica
      */
     @Override
     public int hashCode() {
-        return Objects.hash(codiceFiscale);
+        return Objects.hash(uid);
     }
 
     /**
-     * Metodo equals sui codici fiscali di persone generiche
+     * Metodo equals sugli uid di persone generiche
      *
      * @param obj oggetto in input da equiparare
      *
-     * @return risulatato dell'equiparazione tra i codici fiscali
+     * @return risulatato dell'equiparazione tra gli uid
      */
     @Override
     public boolean equals(Object obj) {
@@ -343,7 +314,7 @@ public abstract class AbstractPersona {
         if (getClass() != obj.getClass())
             return false;
         AbstractPersona other = (AbstractPersona) obj;
-        return Objects.equals(codiceFiscale, other.codiceFiscale);
+        return Objects.equals(uid, other.uid);
     }
 
 
@@ -355,7 +326,7 @@ public abstract class AbstractPersona {
      */
     @Override
     public String toString() {
-        return "uid=" + uid + " codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail;
+        return "uid=" + uid + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita +  ", citta=" + citta + ", residenza=" + residenza + ", numeroTelefono=" + numeroTelefono + ", mail=" + mail;
     }
 
 

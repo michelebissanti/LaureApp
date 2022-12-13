@@ -53,7 +53,6 @@ public class Studente extends AbstractPersona{
      * Costruttore di uno studente
      *
      * @param uid chiave primaria di autenticazione della persona
-     * @param codiceFiscale codice fiscale identificativo della persona
      * @param nome nome della persona
      * @param cognome cognome della persona
      * @param dataNascita data di nascita della persona
@@ -69,8 +68,8 @@ public class Studente extends AbstractPersona{
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
-    public Studente(String uid, String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, String corsoDiLaurea, String annoIscrizione, Float media, List<String> esamiPreferiti) throws EccezioniPersonalizzate {
-        super(uid, codiceFiscale, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
+    public Studente(String uid, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, String corsoDiLaurea, String annoIscrizione, Float media, List<String> esamiPreferiti) throws EccezioniPersonalizzate {
+        super(uid, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
 
         if(matricola == null || !matricola.matches(REGEX_MATRICOLA))
             throw new EccezioniPersonalizzate("Matricola non valida");
