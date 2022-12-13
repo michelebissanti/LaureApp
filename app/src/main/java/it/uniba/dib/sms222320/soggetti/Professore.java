@@ -38,7 +38,7 @@ public class Professore extends AbstractPersona{
 
     //COSTRUTTORE
     /**
-     * Costruttore di uno studente
+     * Costruttore di un professore
      *
      * @param uid chiave primaria di autenticazione della persona
      * @param nome nome della persona
