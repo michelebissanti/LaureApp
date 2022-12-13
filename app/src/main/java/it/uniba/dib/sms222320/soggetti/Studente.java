@@ -1,6 +1,7 @@
 package it.uniba.dib.sms222320.soggetti;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 import it.uniba.dib.sms222320.eccezioni.EccezioniPersonalizzate;
 
@@ -37,6 +38,10 @@ public class Studente extends AbstractPersona{
      * Variabile media relativa alla media dei voti di uno studente
      */
     private Float media = null;
+    /**
+     * Lista esamiPreferiti relativa agli esami preferiti di uno studente
+     */
+    private List<String> esamiPreferiti = null;
 
 
     //COSTRUTTORE
@@ -55,10 +60,11 @@ public class Studente extends AbstractPersona{
      * @param corsoDiLaurea corso di laurea dello studente
      * @param annoIscrizione anno di iscrizione dello studente
      * @param media media dei voti dello studente
+     * @param esamiPreferiti esami preferiti dello studente
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
      */
-    public Studente(String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, String corsoDiLaurea, String annoIscrizione, Float media) throws EccezioniPersonalizzate {
+    public Studente(String codiceFiscale, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola, String corsoDiLaurea, String annoIscrizione, Float media, List<String> esamiPreferiti) throws EccezioniPersonalizzate {
         super(codiceFiscale, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
 
         if(matricola == null || !matricola.matches(REGEX_MATRICOLA))
@@ -77,6 +83,7 @@ public class Studente extends AbstractPersona{
         this.corsoDiLaurea = stringaSettata(corsoDiLaurea);
         this.annoIscrizione = annoIscrizione;
         this.media = media;
+        this.esamiPreferiti = esamiPreferiti;
     }
 
     //GETTER E SETTER
@@ -164,6 +171,24 @@ public class Studente extends AbstractPersona{
         this.media = media;
     }
 
+    /**
+     * Metodo getEsamiPreferiti per la restituzione della media dei voti di uno studente
+     *
+     * @return esamiPreferiti dello studente
+     */
+    public List<String> getEsamiPreferiti() {
+        return esamiPreferiti;
+    }
+
+    /**
+     * Metodo setEsamiPreferiti per l'impostazione della lista degli esami preferiti di uno studente
+     *
+     * @param esamiPreferiti esami preferiti di uno studente
+     */
+    public void setEsamiPreferiti(List<String> esamiPreferiti) {
+        this.esamiPreferiti = esamiPreferiti;
+    }
+
     //TO STRING
     /**
      * Metodo toString per la visualizzazione delle informazioni relative ad uno studente
@@ -172,6 +197,6 @@ public class Studente extends AbstractPersona{
      */
     @Override
     public String toString() {
-        return "Studente [" + "matricola=" + matricola + super.toString() + " corsoDiLaurea=" + corsoDiLaurea + " annoIscrizione=" + annoIscrizione + " media=" + media + "]";
+        return "Studente [" + "matricola=" + matricola + super.toString() + " corsoDiLaurea=" + corsoDiLaurea + " annoIscrizione=" + annoIscrizione + " media=" + media + " esamiPreferiti=" + esamiPreferiti + "]";
     }
 }
