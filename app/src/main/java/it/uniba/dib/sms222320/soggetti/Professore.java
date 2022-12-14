@@ -86,20 +86,6 @@ public class Professore extends AbstractPersona{
         if(matricola == null || !matricola.matches(REGEX_MATRICOLA))
             throw new EccezioniPersonalizzate("Matricola non valida");
 
-        if(corsiDiLaurea.size() != 0) {
-            for (String corsoDiLaurea: corsiDiLaurea) {
-                if(corsoDiLaurea == null || !corsoDiLaurea.matches(REGEX_CORSO_LAUREA))
-                    throw new EccezioniPersonalizzate("Corso di laurea non valido");
-            }
-        }
-
-        if(materieInsegnate.size() != 0) {
-            for (String materiaInsegnata: materieInsegnate) {
-                if(materiaInsegnata == null || !materiaInsegnata.matches(REGEX_MATERIA))
-                    throw new EccezioniPersonalizzate("Materia non valida");
-            }
-        }
-
         this.matricola = matricola;
     }
 

@@ -29,7 +29,7 @@ public class Tesi {
      */
     private String descrizione = null;
     /**
-     * Variabile tempistiche relativa al tempo minimo previsto per la tesi
+     * Variabile tempistiche relativa al tempo minimo previsto in giorni per la tesi
      */
     private Integer tempistiche = null;
     /**
