@@ -13,7 +13,7 @@ public class Task {
     private static final String REGEX_STRINGHE = "^[a-zA-Z\\s]+$";
 
 
-    //VARIABILE
+    //VARIABILI
     /**
      * Variabile codice relativo al codice identificativo del task
      */
