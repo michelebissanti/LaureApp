@@ -79,7 +79,22 @@ public class Professore extends AbstractPersona{
         this.materieInsegnate = materieInsegnate;
     }
 
-    //costruttore con tutto tranne corsi di laure e materie
+    //COSTRUTTORE SENZA CORSI DI LAUREA E MATERIE INSEGNATE
+    /**
+     * Costruttore di un professore senza corsi di laurea e materie insegnate
+     *
+     * @param uid chiave primaria di autenticazione della persona
+     * @param nome nome della persona
+     * @param cognome cognome della persona
+     * @param dataNascita data di nascita della persona
+     * @param citta citta della persona
+     * @param residenza residenza della persona
+     * @param numeroTelefono numero di telefono della persona
+     * @param mail e-mail della persona
+     * @param matricola matricola identificativa del professore
+     *
+     * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una persona
+     */
     public Professore(String uid, String nome, String cognome, LocalDate dataNascita, String citta, String residenza, String numeroTelefono, String mail, String matricola) throws EccezioniPersonalizzate {
         super(uid, nome, cognome, dataNascita, citta, residenza, numeroTelefono, mail);
 
