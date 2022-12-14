@@ -23,7 +23,7 @@ public class Tesi {
     /**
      * Variabile tipo relativo al tipo (sperimentale/compilativa) della tesi
      */
-    private String tipo = null;
+    private TipoTesi tipo = null;
     /**
      * Variabile descrizione relativa alla descrizione della tesi
      */
@@ -59,7 +59,6 @@ public class Tesi {
 
 
     //COSTRUTTORE
-
     /**
      * Costruttore di una tesi
      *
@@ -77,14 +76,14 @@ public class Tesi {
      *
      * @throws EccezioniPersonalizzate eccezioni relative all'istanziazione di una tesi
      */
-    public Tesi(String codice, String argomento, String tipo, String descrizione, Integer tempistiche, Float mediaVoti, List<String> esamiNecessari, List<String> skills, List<String> progettiCorrelati, String relatore, List<String> coRelatori) throws EccezioniPersonalizzate {
+    public Tesi(String codice, String argomento, TipoTesi tipo, String descrizione, Integer tempistiche, Float mediaVoti, List<String> esamiNecessari, List<String> skills, List<String> progettiCorrelati, String relatore, List<String> coRelatori) throws EccezioniPersonalizzate {
         if(codice == null)
             throw new EccezioniPersonalizzate("Codice non valido");
 
         if(argomento == null || !argomento.matches(REGEX_STRINGHE))
             throw new EccezioniPersonalizzate("Argomento non valido");
 
-        if(tipo == null || !tipo.matches(REGEX_STRINGHE))
+        if(tipo == null)
             throw new EccezioniPersonalizzate("Tipo non valido");
 
         if(descrizione == null || !descrizione.matches(REGEX_STRINGHE))
@@ -143,6 +142,15 @@ public class Tesi {
 
     //GETTER E SETTER
     /**
+     * Metodo getRegexStringhe per la restituzione dell'espressione regolare relativa alle stringhe
+     *
+     * @return REGEX_STRINGHE
+     */
+    public String getRegexStringhe() {
+        return REGEX_STRINGHE;
+    }
+
+    /**
      * Metodo getCodice per la restituzione del codice di una tesi
      *
      * @return codice della tesi
@@ -174,7 +182,7 @@ public class Tesi {
      *
      * @return tipo della tesi
      */
-    public String getTipo() {
+    public TipoTesi getTipo() {
         return tipo;
     }
 
@@ -183,7 +191,7 @@ public class Tesi {
      *
      * @param tipo tipo della tesi
      */
-    public void setTipo(String tipo) {
+    public void setTipo(TipoTesi tipo) {
         this.tipo = tipo;
     }
 
@@ -334,7 +342,7 @@ public class Tesi {
 
     //HASH CODE E EQUALS
     /**
-     * Metodo hashCode sull'uid di una tesi
+     * Metodo hashCode sul codice di una tesi
      *
      * @return codice hash del codice di una tesi
      */

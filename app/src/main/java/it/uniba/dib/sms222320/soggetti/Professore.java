@@ -2,7 +2,6 @@ package it.uniba.dib.sms222320.soggetti;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 import it.uniba.dib.sms222320.eccezioni.EccezioniPersonalizzate;
 
 public class Professore extends AbstractPersona{
