@@ -27,12 +27,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="105dp"
+        android:onClick="onSignupClick"
+        android:text="@string/btn_signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNoAccount"
-        tools:text="@string/btn_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/textNoAccount" />
 
     <TextView
         android:id="@+id/textNoAccount"
@@ -45,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="@+id/signupButton"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        tools:text="@string/btn_link_to_register" />
+        android:text="@string/btn_link_to_register" />
 
     <EditText
         android:id="@+id/email"
@@ -65,11 +66,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="45dp"
+        android:onClick="onLoginClick"
+        android:text="@string/btn_login"
         app:layout_constraintBottom_toTopOf="@+id/textNoAccount"
         app:layout_constraintEnd_toEndOf="@+id/textNoAccount"
         app:layout_constraintStart_toStartOf="@+id/textNoAccount"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:text="@string/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <ImageView
         android:id="@+id/logo"

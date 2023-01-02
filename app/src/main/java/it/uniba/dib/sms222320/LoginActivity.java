@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Set the view now
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_login);
 
         inputEmail = (EditText)findViewById(R.id.email);
         inputPassword = (EditText)findViewById(R.id.password);
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    public void loginButtonClicked(View view) {
+    public void onLoginClick(View view) {
         String email = inputEmail.getText().toString();
         final String password = inputPassword.getText().toString();
 
@@ -100,4 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    public void onSignupClick(View view)  {
+        startActivity(new Intent(this, RegisterActivity.class));
+    }
 }
