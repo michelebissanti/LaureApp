@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LaureApp</string>
+    <string name="minimum_password">Password troppo corta, almeno 6 caratteri!</string>
+    <string name="action_sign_in_short">Registrati</string>
+    <string name="auth_failed">Autenticazione fallita, controlla email e password</string>
+    <string name="btn_link_to_register">Non hai un account? Registrati adesso!</string>
+    <string name="btn_link_to_login">Già registrato. Accedi adesso</string>
+    <string name="name">Nome</string>
+    <string name="btn_signup">REGISTRATI</string>
+</resources>

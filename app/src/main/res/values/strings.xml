@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LaureApp</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or register</string>
+    <string name="btn_login" translatable="false">LOGIN</string>
+    <string name="btn_signup">SIGNUP</string>
+    <string name="btn_link_to_register">Not a member? Get registered now!</string>
+    <string name="btn_link_to_login">Already registered. Let me login</string>
+    <string name="btn_sign_out" translatable="false">Logout</string>
+    <string name="name">Name</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="username" translatable="false">Username</string>
+</resources>
