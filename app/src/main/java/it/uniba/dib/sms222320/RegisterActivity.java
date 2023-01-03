@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import it.uniba.dib.sms222320.database.utils.UserUtility;
+import it.uniba.dib.sms222320.models.User;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword, inputUsername;
@@ -54,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onRegisterClicked(View view) {
-        String emailInput = inputEmail.getText().toString().trim();
+        String email = inputEmail.getText().toString().trim();
         String password = inputPassword.getText().toString().trim();
         final String username = inputUsername.getText().toString().trim();
 
@@ -63,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(emailInput)) {
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -79,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         //create user
-        mAuth.createUserWithEmailAndPassword(emailInput, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -93,6 +96,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                             Log.e("MyTag", task.getException().toString());
                         } else {
+                            UserUtility userUtility = new UserUtility();
+
+                            User user = new User(username, email, password, null);
+                            userUtility.writeNewUser(user);
 
                             startActivity(new Intent(RegisterActivity.this, SignedInActivity.class));
                             finish();
