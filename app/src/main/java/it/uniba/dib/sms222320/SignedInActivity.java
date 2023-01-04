@@ -12,7 +12,5 @@ public class SignedInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signed_in);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        System.out.println("********** LOG :" + mAuth.getCurrentUser().getEmail());
     }
 }
