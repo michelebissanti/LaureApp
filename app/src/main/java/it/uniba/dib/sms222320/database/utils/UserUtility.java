@@ -1,5 +1,6 @@
 package it.uniba.dib.sms222320.database.utils;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,9 +17,8 @@ public class UserUtility {
     }
 
     public void writeNewUser(User user) {
-        String key = mDatabase.child("users").push().getKey();
-
-        mDatabase.child("users").child(key).setValue(user);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mDatabase.child("users").child(mAuth.getUid()).setValue(user);
     }
 
 }
