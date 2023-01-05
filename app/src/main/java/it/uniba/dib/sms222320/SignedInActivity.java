@@ -30,7 +30,7 @@ public class SignedInActivity extends AppCompatActivity {
         // Firebase Realtime Instance
         mDatabase = FirebaseDatabase.getInstance("https://laureapp-fbf2b-default-rtdb.europe-west1.firebasedatabase.app").getReference();
 
-
+        //FirebaseAuth.getInstance().signOut();
     }
 
 }

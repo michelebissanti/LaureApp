@@ -77,8 +77,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if (password.length() < 6) {
             inputPassword.setError(getString(R.string.minimum_password));
-        } else {
             Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+            return;
         }
 
         //authenticate user
@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
                             // there was an error
-                            Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException(),
+                            Toast.makeText(LoginActivity.this, "Authentication failed. Retry",
                                     Toast.LENGTH_LONG).show();
                             Log.e("MyTag", task.getException().toString());
 
