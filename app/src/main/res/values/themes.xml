@@ -2,5 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.LaureApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/titillium_web</item>
+        <item name="fontFamily">@font/titillium_web</item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
     </style>
+
 </resources>

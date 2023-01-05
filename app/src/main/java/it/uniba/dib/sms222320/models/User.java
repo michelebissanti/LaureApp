@@ -8,13 +8,13 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private Ruolo ruolo;
+    private Role role;
 
-    public User(String username, String email, String password, Ruolo ruolo) {
+    public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.ruolo = ruolo;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -41,11 +41,11 @@ public class User {
         this.password = password;
     }
 
-    public Ruolo getRuolo() {
-        return ruolo;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRuolo(Ruolo ruolo) {
-        this.ruolo = ruolo;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

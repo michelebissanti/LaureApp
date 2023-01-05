@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import it.uniba.dib.sms222320.database.utils.UserUtility;
+import it.uniba.dib.sms222320.models.Role;
 import it.uniba.dib.sms222320.models.User;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -25,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String userId;
     private String email;
+    private Spinner roleSpinner;
 
     private FirebaseAuth mAuth;
 
@@ -33,11 +38,20 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Database instance
+        mAuth = FirebaseAuth.getInstance();
+
+        // Roles Spinner
+        roleSpinner = findViewById(R.id.role);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        roleSpinner.setAdapter(adapter);
+        roleSpinner.setPrompt(getString(R.string.role_label));
+
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         inputUsername = (EditText) findViewById(R.id.username);
 
-        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -98,7 +112,20 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             UserUtility userUtility = new UserUtility();
 
-                            User user = new User(username, email, password, null);
+                            Role role = null;
+                            switch(roleSpinner.getSelectedItemPosition()) {
+                                case 0:
+                                    role = Role.STUDENT;
+                                    break;
+                                case 1:
+                                    role = Role.PROFESSOR;
+                                    break;
+                                default:
+                                    ((TextView)roleSpinner.getSelectedView()).setError(getString(R.string.role_error));
+                                    return;
+                            }
+
+                            User user = new User(username, email, password, role);
                             userUtility.writeNewUser(user);
 
                             startActivity(new Intent(RegisterActivity.this, SignedInActivity.class));

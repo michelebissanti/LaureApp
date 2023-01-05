@@ -7,4 +7,6 @@
     <string name="btn_link_to_login">Già registrato? Accedi adesso!</string>
     <string name="name">Nome</string>
     <string name="btn_signup">REGISTRATI</string>
+    <string name="role_label" translatable="false">Scegli un ruolo.</string>
+    <string name="role_error">Scegli un ruolo valido.</string>
 </resources>

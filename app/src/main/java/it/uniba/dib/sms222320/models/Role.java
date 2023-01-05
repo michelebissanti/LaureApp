@@ -1,7 +1,7 @@
 package it.uniba.dib.sms222320.models;
 
-public enum Ruolo {
+public enum Role {
     ADMIN,
-    PROFESSORE,
-    STUDENTE
+    STUDENT,
+    PROFESSOR
 }
