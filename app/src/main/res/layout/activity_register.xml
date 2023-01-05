@@ -12,6 +12,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="192dp"
       android:ems="10"
+      android:hint="@string/username"
       android:inputType="textPersonName"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.502"
@@ -36,6 +37,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="36dp"
       android:ems="10"
+      android:hint="@string/password"
       android:inputType="textPassword"
       app:layout_constraintStart_toStartOf="@+id/email"
       app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -46,6 +48,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="36dp"
       android:ems="10"
+      android:hint="@string/email"
       android:inputType="textEmailAddress"
       app:layout_constraintStart_toStartOf="@+id/username"
       app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -70,5 +73,12 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+  <Spinner
+      android:id="@+id/ruolo"
+      android:layout_width="209dp"
+      android:layout_height="45dp"
+      tools:layout_editor_absoluteX="101dp"
+      tools:layout_editor_absoluteY="117dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
