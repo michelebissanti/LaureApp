@@ -1,4 +1,4 @@
-package it.uniba.dib.sms222320.activities.admin;
+package it.uniba.dib.sms222320.activities.professor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import it.uniba.dib.sms222320.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_admin);
+        setContentView(R.layout.main_professor);
     }
 }

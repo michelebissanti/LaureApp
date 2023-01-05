@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,7 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import it.uniba.dib.sms222320.R;
-import it.uniba.dib.sms222320.activities.admin.HomeActivity;
+import it.uniba.dib.sms222320.activities.professor.MainActivity;
 
 public class SignedInActivity extends AppCompatActivity {
 
@@ -45,13 +44,13 @@ public class SignedInActivity extends AppCompatActivity {
 
                     switch(task.getResult().getValue().toString()) {
                         case "ADMIN":
-                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.admin.HomeActivity.class));
+                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.admin.MainActivity.class));
                             break;
                         case "STUDENT":
-                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.student.HomeActivity.class));
+                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.student.MainActivity.class));
                             break;
                         case "PROFESSOR":
-                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.professor.HomeActivity.class));
+                            startActivity(new Intent(SignedInActivity.this, MainActivity.class));
                             break;
                     }
                 }
