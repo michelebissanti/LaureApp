@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
+    <item
+        android:id="@+id/tesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="Tesi" />
+    <item
+        android:id="@+id/segnalazioni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/stat_sys_warning"
+        android:title="Segnalazioni" />
+    <item
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/ic_round_home_24"
-        android:id="@+id/home"/>
-    <item android:title="Profile"
+        android:title="Home" />
+    <item
+        android:id="@+id/ricevimenti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="Ricevimenti" />
+    <item
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:icon="@drawable/ic_round_person_24"
-        android:id="@+id/profile"/>
-    <item android:title="Settings"
-        android:icon="@drawable/ic_round_settings_24"
-        android:id="@+id/settings"/>
+        android:title="Profilo" />
 </menu>

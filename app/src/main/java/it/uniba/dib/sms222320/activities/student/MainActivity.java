@@ -48,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
                     break;
-                case R.id.settings:
-                    replaceFragment(new SettingsFragment());
-                    break;
             }
 
             return true;
