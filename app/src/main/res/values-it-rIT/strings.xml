@@ -13,4 +13,5 @@
     <string name="session_recover">Sessione recuperata con successo.</string>
     <string name="btn_logout">Esci</string>
     <string name="logOutSuccess">Logout eseguito con successo.</string>
+    <string name="welcome_message">"Benvenuto, "</string>
 </resources>
