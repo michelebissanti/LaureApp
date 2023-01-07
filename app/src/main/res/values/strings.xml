@@ -17,6 +17,7 @@
         <item>Student</item>
         <item>Professor</item>
     </string-array>
+    <string name="login_progress">Login in Progress for </string>
+    <string name="session_recover">Session recovered successful.</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

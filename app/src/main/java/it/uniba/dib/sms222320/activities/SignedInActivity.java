@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,11 +22,15 @@ import it.uniba.dib.sms222320.activities.professor.MainActivity;
 public class SignedInActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+    private TextView loginProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signed_in);
+
+        loginProgress = findViewById(R.id.loginProgress);
+
 
         // Firebase Realtime Instance
         mDatabase = FirebaseDatabase.getInstance("https://laureapp-fbf2b-default-rtdb.europe-west1.firebasedatabase.app").getReference();
@@ -32,6 +38,8 @@ public class SignedInActivity extends AppCompatActivity {
         // Fetch uid currentUser
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String uid = mAuth.getCurrentUser().getUid();
+
+        loginProgress.setText(getString(R.string.login_progress) + "\n" + mAuth.getCurrentUser().getEmail());
 
         // Search Role by ID
         mDatabase.child("users").child(uid).child("role").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -41,16 +49,19 @@ public class SignedInActivity extends AppCompatActivity {
                     Log.e("firebase", "Error Getting Data", task.getException());
                 } else {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
-
+                    Toast.makeText(SignedInActivity.this, getString(R.string.session_recover), Toast.LENGTH_LONG).show();
                     switch(task.getResult().getValue().toString()) {
                         case "ADMIN":
                             startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.admin.MainActivity.class));
+                            finish();
                             break;
                         case "STUDENT":
                             startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.student.MainActivity.class));
+                            finish();
                             break;
                         case "PROFESSOR":
-                            startActivity(new Intent(SignedInActivity.this, MainActivity.class));
+                            startActivity(new Intent(SignedInActivity.this, it.uniba.dib.sms222320.activities.professor.MainActivity.class));
+                            finish();
                             break;
                     }
                 }

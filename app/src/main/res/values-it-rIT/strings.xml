@@ -9,4 +9,6 @@
     <string name="btn_signup">REGISTRATI</string>
     <string name="role_label" translatable="false">Scegli un ruolo.</string>
     <string name="role_error">Scegli un ruolo valido.</string>
+    <string name="login_progress">"Login in corso per "</string>
+    <string name="session_recover">Sessione recuperata con successo.</string>
 </resources>
