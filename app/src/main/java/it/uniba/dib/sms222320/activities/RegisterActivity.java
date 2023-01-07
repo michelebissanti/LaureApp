@@ -121,6 +121,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 case 1:
                                     role = Role.PROFESSOR;
                                     break;
+                                case 2:
+                                    role = Role.ADMIN;
+                                    break;
                                 default:
                                     ((TextView)roleSpinner.getSelectedView()).setError(getString(R.string.role_error));
                                     return;
