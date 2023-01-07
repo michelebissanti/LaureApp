@@ -19,5 +19,8 @@
     </string-array>
     <string name="login_progress">Login in Progress for </string>
     <string name="session_recover">Session recovered successful.</string>
+    <string name="btn_logout">LogOut</string>
+    <string name="logOutSuccess">Logged out successfully.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

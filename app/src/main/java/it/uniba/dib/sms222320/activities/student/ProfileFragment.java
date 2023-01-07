@@ -1,5 +1,6 @@
 package it.uniba.dib.sms222320.activities.student;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import it.uniba.dib.sms222320.R;
+import it.uniba.dib.sms222320.activities.LoginActivity;
+import it.uniba.dib.sms222320.activities.RegisterActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +61,7 @@ public class ProfileFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -63,4 +70,5 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_student_profile, container, false);
     }
+
 }

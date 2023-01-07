@@ -5,19 +5,28 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import it.uniba.dib.sms222320.R;
+import it.uniba.dib.sms222320.activities.LoginActivity;
+import it.uniba.dib.sms222320.activities.SignedInActivity;
 import it.uniba.dib.sms222320.databinding.MainStudentBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     MainStudentBinding binding;
+    private  FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = MainStudentBinding.inflate(getLayoutInflater());
+        mAuth = FirebaseAuth.getInstance();
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
@@ -38,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+
     }
 
     private void replaceFragment(Fragment fragment){
@@ -48,5 +58,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
 
+    }
+
+    public void onLogOutClick(View view) {
+        mAuth.signOut();
+
+        Toast.makeText(this, getString(R.string.logOutSuccess), Toast.LENGTH_LONG).show();
+
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 }
