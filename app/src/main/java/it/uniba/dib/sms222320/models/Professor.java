@@ -27,6 +27,10 @@ public class Professor extends User {
         this.materieInsegnate = materieInsegnate;
     }
 
+    public Professor() {
+        //Do nothing
+    }
+
     public String getMatricola() {
         return matricola;
     }

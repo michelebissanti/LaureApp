@@ -48,6 +48,12 @@ public class RegisterActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         inputUsername = (EditText) findViewById(R.id.username);
+        inputName = findViewById(R.id.name);
+        inputSurname = findViewById(R.id.surname);
+        inputBirthDate = findViewById(R.id.birthDate);
+        inputCity = findViewById(R.id.city);
+        inputAddress = findViewById(R.id.address);
+        inputTelephone = findViewById(R.id.telephone);
 
     }
 

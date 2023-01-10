@@ -32,6 +32,10 @@ public class User {
         this.telephone = telephone;
     }
 
+    public User() {
+        //Do Nothing
+    }
+
     public Role getRole() {
         return role;
     }
