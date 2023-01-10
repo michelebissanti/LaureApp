@@ -114,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                             UserUtility userUtility = new UserUtility();
 
                             Role role = null;
+
                             switch(roleSpinner.getSelectedItemPosition()) {
                                 case 0:
                                     role = Role.STUDENT;

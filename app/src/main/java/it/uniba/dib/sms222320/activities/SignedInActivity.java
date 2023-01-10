@@ -17,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import it.uniba.dib.sms222320.R;
-import it.uniba.dib.sms222320.activities.professor.MainActivity;
 
 public class SignedInActivity extends AppCompatActivity {
 
