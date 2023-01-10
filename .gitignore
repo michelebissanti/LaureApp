@@ -1,7 +1,8 @@
 *.iml
-/.gradle
-.gradle
+# Gradle files
 .gradle/
+build/
+*/build/
 /local.properties
 /.idea/caches
 /.idea/libraries

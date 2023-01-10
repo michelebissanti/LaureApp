@@ -26,12 +26,8 @@ import it.uniba.dib.sms222320.models.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword, inputUsername;
-
-    private String userId;
-    private String email;
+    private EditText inputUsername, inputEmail, inputPassword, inputName, inputSurname, inputBirthDate, inputCity, inputAddress, inputTelephone;
     private Spinner roleSpinner;
-
     private FirebaseAuth mAuth;
 
     @Override
@@ -72,9 +68,16 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onRegisterClicked(View view) {
-        String email = inputEmail.getText().toString().trim();
-        String password = inputPassword.getText().toString().trim();
         final String username = inputUsername.getText().toString().trim();
+        final String email = inputEmail.getText().toString().trim();
+        final String password = inputPassword.getText().toString().trim();
+        final String name = inputName.getText().toString().trim();
+        final String surname = inputSurname.getText().toString().trim();
+        final String birthDate = inputBirthDate.getText().toString().trim();
+        final String city = inputCity.getText().toString().trim();
+        final String address = inputAddress.getText().toString().trim();
+        final String telephone = inputTelephone.getText().toString().trim();
+
 
         if (TextUtils.isEmpty(username)) {
             Toast.makeText(getApplicationContext(), "Enter username!", Toast.LENGTH_SHORT).show();
@@ -88,6 +91,36 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(), "Enter name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(surname)) {
+            Toast.makeText(getApplicationContext(), "Enter surname!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(birthDate)) {
+            Toast.makeText(getApplicationContext(), "Enter birth date!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(city)) {
+            Toast.makeText(getApplicationContext(), "Enter city!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(address)) {
+            Toast.makeText(getApplicationContext(), "Enter address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(telephone)) {
+            Toast.makeText(getApplicationContext(), "Enter telephone number!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -130,7 +163,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     return;
                             }
 
-                            User user = new User(username, email, password, role);
+                            User user = new User(role, username, email, password, name, surname, birthDate, city, address, telephone);
                             userUtility.writeNewUser(user);
 
                             startActivity(new Intent(RegisterActivity.this, SignedInActivity.class));

@@ -7,11 +7,16 @@
     <string name="btn_link_to_login">Già registrato? Accedi adesso!</string>
     <string name="name">Nome</string>
     <string name="btn_signup">REGISTRATI</string>
-    <string name="role_label" translatable="false">Scegli un ruolo.</string>
+    <string name="role_label" translatable="false">Scegli un ruolo</string>
     <string name="role_error">Scegli un ruolo valido.</string>
     <string name="login_progress">"Login in corso per "</string>
     <string name="session_recover">Sessione recuperata con successo.</string>
     <string name="btn_logout">Esci</string>
     <string name="logOutSuccess">Logout eseguito con successo.</string>
     <string name="welcome_message">"Benvenuto, "</string>
+    <string name="address">Indirizzo</string>
+    <string name="telephone">Telefono</string>
+    <string name="birth_date">Data di Nascita</string>
+    <string name="city">Città</string>
+    <string name="surname">Cognome</string>
 </resources>

@@ -6,87 +6,193 @@
     android:layout_height="match_parent"
     tools:context=".activities.RegisterActivity">
 
-  <EditText
-      android:id="@+id/username"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="31dp"
-      android:ems="10"
-      android:fontFamily="@font/titillium_web"
-      android:hint="@string/username"
-      android:inputType="textPersonName"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/role" />
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true"
+      tools:layout_editor_absoluteX="16dp"
+      tools:layout_editor_absoluteY="0dp">
 
-  <Button
-      android:id="@+id/button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="42dp"
-      android:fontFamily="@font/titillium_web"
-      android:onClick="onRegisterClicked"
-      android:text="@string/btn_signup"
-      app:layout_constraintEnd_toEndOf="@+id/textView"
-      app:layout_constraintStart_toStartOf="@+id/textView"
-      app:layout_constraintTop_toBottomOf="@+id/password" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-  <EditText
-      android:id="@+id/password"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="36dp"
-      android:ems="10"
-      android:fontFamily="@font/titillium_web"
-      android:hint="@string/password"
-      android:inputType="textPassword"
-      app:layout_constraintStart_toStartOf="@+id/email"
-      app:layout_constraintTop_toBottomOf="@+id/email" />
+      <EditText
+          android:id="@+id/email"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:fontFamily="@font/titillium_web"
+          android:hint="@string/email"
+          android:inputType="textEmailAddress"
+          app:layout_constraintBottom_toTopOf="@+id/password"
+          app:layout_constraintStart_toStartOf="@+id/username"
+          app:layout_constraintTop_toBottomOf="@+id/role" />
 
-  <EditText
-      android:id="@+id/email"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="36dp"
-      android:ems="10"
-      android:fontFamily="@font/titillium_web"
-      android:hint="@string/email"
-      android:inputType="textEmailAddress"
-      app:layout_constraintStart_toStartOf="@+id/username"
-      app:layout_constraintTop_toBottomOf="@+id/username" />
+      <Button
+          android:id="@+id/button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="60dp"
+          android:fontFamily="@font/titillium_web"
+          android:onClick="onRegisterClicked"
+          android:text="@string/btn_signup"
+          app:layout_constraintBottom_toTopOf="@+id/textView"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/telephone" />
 
-  <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="45dp"
-      android:fontFamily="@font/titillium_web"
-      android:text="@string/btn_link_to_login"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button" />
+      <TextView
+          android:id="@+id/textView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/titillium_web"
+          android:text="@string/btn_link_to_login"
+          app:layout_constraintBottom_toTopOf="@+id/button2"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/button" />
 
-  <Button
-      android:id="@+id/button2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/titillium_web"
-      android:onClick="onLoginClicked"
-      android:text="@string/btn_login"
-      app:layout_constraintEnd_toEndOf="@+id/textView"
-      app:layout_constraintStart_toStartOf="@+id/textView"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="152dp"
+          android:fontFamily="@font/titillium_web"
+          android:onClick="onLoginClicked"
+          android:text="@string/btn_login"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="@+id/textView"
+          app:layout_constraintStart_toStartOf="@+id/textView"
+          app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-  <Spinner
-      android:id="@+id/role"
-      style="@android:style/Widget.Material.Spinner.Underlined"
-      android:layout_width="271dp"
-      android:layout_height="41dp"
-      android:layout_marginStart="1dp"
-      android:layout_marginTop="138dp"
-      android:layout_marginEnd="1dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      <EditText
+          android:id="@+id/username"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:fontFamily="@font/titillium_web"
+          android:hint="@string/username"
+          android:inputType="textPersonName"
+          app:layout_constraintStart_toStartOf="@+id/role"
+          app:layout_constraintTop_toBottomOf="@+id/role" />
+
+      <EditText
+          android:id="@+id/password"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:fontFamily="@font/titillium_web"
+          android:hint="@string/password"
+          android:inputType="textPassword"
+          app:layout_constraintBottom_toTopOf="@+id/name"
+          app:layout_constraintStart_toStartOf="@+id/email"
+          app:layout_constraintTop_toBottomOf="@+id/email" />
+
+      <EditText
+          android:id="@+id/city"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:hint="@string/city"
+          android:inputType="textPersonName"
+          app:layout_constraintBottom_toTopOf="@+id/address"
+          app:layout_constraintStart_toStartOf="@+id/birthDate"
+          app:layout_constraintTop_toBottomOf="@+id/birthDate" />
+
+      <EditText
+          android:id="@+id/name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:hint="@string/name"
+          android:inputType="textPersonName"
+          app:layout_constraintBottom_toTopOf="@+id/surname"
+          app:layout_constraintStart_toStartOf="@+id/password"
+          app:layout_constraintTop_toBottomOf="@+id/password" />
+
+      <Spinner
+          android:id="@+id/role"
+          style="@android:style/Widget.Material.Spinner.Underlined"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginStart="70dp"
+          android:layout_marginTop="85dp"
+          android:layout_marginEnd="70dp"
+          android:layout_marginBottom="45dp"
+          app:layout_constraintBottom_toTopOf="@+id/email"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <EditText
+          android:id="@+id/birthDate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:hint="@string/birth_date"
+          android:inputType="date"
+          app:layout_constraintBottom_toTopOf="@+id/city"
+          app:layout_constraintStart_toStartOf="@+id/surname"
+          app:layout_constraintTop_toBottomOf="@+id/surname" />
+
+      <EditText
+          android:id="@+id/address"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:hint="@string/address"
+          android:inputType="textPersonName"
+          app:layout_constraintBottom_toTopOf="@+id/telephone"
+          app:layout_constraintStart_toStartOf="@+id/city"
+          app:layout_constraintTop_toBottomOf="@+id/city" />
+
+      <EditText
+          android:id="@+id/telephone"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="42dp"
+          android:ems="10"
+          android:hint="@string/telephone"
+          android:inputType="phone"
+          app:layout_constraintBottom_toTopOf="@+id/button"
+          app:layout_constraintStart_toStartOf="@+id/address"
+          app:layout_constraintTop_toBottomOf="@+id/address" />
+
+      <EditText
+          android:id="@+id/surname"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:hint="@string/surname"
+          android:inputType="textPersonName"
+          app:layout_constraintBottom_toTopOf="@+id/birthDate"
+          app:layout_constraintStart_toStartOf="@+id/name"
+          app:layout_constraintTop_toBottomOf="@+id/name" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintGuide_begin="-133dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_begin="-38dp" />
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_begin="-188dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
