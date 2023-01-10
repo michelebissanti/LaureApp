@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Roles Spinner
         roleSpinner = findViewById(R.id.role);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         roleSpinner.setAdapter(adapter);
         roleSpinner.setPrompt(getString(R.string.role_label));
 
