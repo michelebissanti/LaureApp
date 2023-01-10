@@ -14,10 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import it.uniba.dib.sms222320.R;
 import it.uniba.dib.sms222320.activities.LoginActivity;
-import it.uniba.dib.sms222320.activities.student.ProfileFragment;
-import it.uniba.dib.sms222320.activities.student.SettingsFragment;
 import it.uniba.dib.sms222320.databinding.MainProfessorBinding;
-import it.uniba.dib.sms222320.databinding.MainStudentBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         mAuth = FirebaseAuth.getInstance();
 
+        replaceFragment(new HomeFragment());
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch(item.getItemId()) {
@@ -39,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
+                    break;
+                case R.id.ricevimenti:
+                    replaceFragment(new RicevimentiFragment());
+                    break;
+                case R.id.segnalazioni:
+                    replaceFragment(new SegnalazioniFragment());
+                    break;
+                case R.id.tesi:
+                    replaceFragment(new TesiFragment());
                     break;
             }
 

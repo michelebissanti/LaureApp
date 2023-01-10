@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
                     break;
+                case R.id.ricevimenti:
+                    replaceFragment(new RicevimentiFragment());
+                    break;
+                case R.id.segnalazioni:
+                    replaceFragment(new SegnalazioniFragment());
+                    break;
+                case R.id.tesi:
+                    replaceFragment(new TesiFragment());
+                    break;
             }
 
             return true;
