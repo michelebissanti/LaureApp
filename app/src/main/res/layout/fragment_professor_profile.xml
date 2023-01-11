@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="DATA DI NASCITA QUI"
-                android:inputType="textPersonName"
+                android:inputType="date|none"
                 android:textAlignment="viewStart"
                 tools:layout_conversion_absoluteHeight="46dp"
                 tools:layout_conversion_absoluteWidth="267dp"
@@ -217,10 +217,9 @@
                 tools:layout_editor_absoluteY="489dp" />
 
             <TextView
-                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AltroCazzoQui"
+                android:text="Numero di Telefono:"
                 android:textAlignment="viewStart"
                 tools:layout_conversion_absoluteHeight="20dp"
                 tools:layout_conversion_absoluteWidth="267dp"
@@ -228,12 +227,12 @@
                 tools:layout_editor_absoluteY="535dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/formTelephone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="QWERTY"
-                android:inputType="textPersonName"
+                android:inputType="none|phone"
                 android:textAlignment="viewStart"
                 tools:layout_conversion_absoluteHeight="46dp"
                 tools:layout_conversion_absoluteWidth="267dp"
