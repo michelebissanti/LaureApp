@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             formDateBirth.setEnabled(true);
             formCity.setEnabled(true);
             formAddress.setEnabled(true);
+            formTelephone.setEnabled(true);
 
         } else if (modProfile.getText().equals("Salva Modifiche")) {
 
@@ -198,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
             formDateBirth.setEnabled(false);
             formCity.setEnabled(false);
             formAddress.setEnabled(false);
+            formTelephone.setEnabled(false);
 
             mDatabase.child("users").child(mAuth.getUid()).child("name").setValue(formName.getText().toString());
             mDatabase.child("users").child(mAuth.getUid()).child("surname").setValue(formSurname.getText().toString());
