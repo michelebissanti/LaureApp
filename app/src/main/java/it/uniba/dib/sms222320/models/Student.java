@@ -37,6 +37,10 @@ public class Student extends User {
         this.idListaTesi = idListaTesi;
     }
 
+    public Student() {
+        //Do Nothing
+    }
+
     public String getMatricola() {
         return matricola;
     }
