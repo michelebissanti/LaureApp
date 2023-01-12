@@ -28,6 +28,7 @@ import it.uniba.dib.sms222320.activities.SignedInActivity;
 import it.uniba.dib.sms222320.databinding.MainStudentBinding;
 import it.uniba.dib.sms222320.models.Professor;
 import it.uniba.dib.sms222320.models.Student;
+import it.uniba.dib.sms222320.utils.ScanQRActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,11 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText formName, formSurname, formDateBirth, formCity, formAddress, formTelephone;
 
-    private TextView usernameText, matricolaText, welcomeText, corsoDiLaureaText;
+    private TextView usernameText, matricolaText, welcomeText, corsoDiLaureaText, codiceTesiScansionato;
 
     private DatabaseReference mDatabase;
 
     private Button modProfile;
+
+    private static final int CODE_TESI = 31;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         formCity = findViewById(R.id.formCity_student);
         formAddress = findViewById(R.id.formAddress_student);
         formTelephone = findViewById(R.id.formTelephone_student);
+
+        //Tesi Fragment
+        codiceTesiScansionato = findViewById(R.id.codiceTesiScansionato);
 
         replaceFragment(new HomeFragment());
 
@@ -148,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Profile Fragment
     public void onLogOutClick(View view) {
         mAuth.signOut();
         Toast.makeText(this, getString(R.string.logOutSuccess), Toast.LENGTH_LONG).show();
@@ -190,4 +198,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //Tesi Fragment
+    public void onScanQRClick(View view) {
+        Intent intent = new Intent(MainActivity.this, ScanQRActivity.class);
+        startActivityForResult(intent, CODE_TESI);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CODE_TESI && resultCode == this.RESULT_OK) {
+            codiceTesiScansionato = findViewById(R.id.codiceTesiScansionato);
+            codiceTesiScansionato.setText("Il codice scansionato è: " + data.getStringExtra("codiceTesiScansionato"));
+        }
+    }
+
+
 }
